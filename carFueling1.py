@@ -1,6 +1,6 @@
-distance = 200
-tank = 250
-stops = [100, 150]
+distance = 700
+tank = 200
+stops = [100, 200, 300, 400]
 def min_refills(distance, tank, stops):
     #gasLeft will be used to track whether we can make it to first stop 
     #initialize it to the tank because this is as far we can go. Each 
@@ -25,7 +25,11 @@ def min_refills(distance, tank, stops):
             #taking care of condition of tank being enought to get you to 
             #last stop
             elif count == len(stops):
-                if gasLeft < distance - distance2: 
+                if (distance - i) > tank: 
+                    numberFills = -1
+                    distance2= distance
+                    break
+                elif gasLeft < distance - distance2: 
                     numberFills = numberFills + 1
                     distance2= distance
                 else: 
